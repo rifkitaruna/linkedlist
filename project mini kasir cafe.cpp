@@ -1,7 +1,16 @@
-struct MenuItem {
-    string nama;
-    int harga, jumlah;
-    MenuItem* next;
-};
+string formatRupiah(int angka) {
+    stringstream ss;
+    ss.imbue(locale(""));
+    ss << fixed << angka;
+    return "Rp" + ss.str();
+}
 
-MenuItem* head = NULL;
+void loading(const string& pesan) {
+    cout << pesan;
+    for (int i = 0; i < 3; i++) {
+        cout << ".";
+        cout.flush();
+        this_thread::sleep_for(chrono::milliseconds(250));
+    }
+    cout << "\n";
+}
